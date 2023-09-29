@@ -102,6 +102,15 @@ export default function HomePage() {
         >
           Sign Out
         </Button>
+        <Button
+          colorScheme='black'
+          variant='outline'
+          onClick={() => {
+            router.push('/user/' + (user?.id ?? ""))
+          }}
+        >
+          View My Gallery
+        </Button>
         <Text fontWeight="bold">User List</Text>
         <VStack align="left" spacing={2} mt={4}>
           {searchedUserList.length === 0 ? (
