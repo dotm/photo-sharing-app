@@ -94,7 +94,7 @@ export default function HomePage() {
         <Text fontWeight="bold">User List</Text>
         <VStack align="left" spacing={2} mt={4}>
           {searchedUserList.length === 0 ? (
-            <Text>No users found</Text>
+            <Text align="center">No users found</Text>
           ) : (
             <SimpleGrid columns={gridColumns} spacing='10px'>
               {

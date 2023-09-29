@@ -30,8 +30,6 @@ From supabase:
 
 ## TODO
 
-- Implement photo page.
-  - Allow comment
 - Deploy (don't forget env var)
 - Check flow new user
 - Check flow new user viewing existing user
@@ -40,3 +38,5 @@ From supabase:
   - also delete from storage
 - Delete Comment
 - Edit Comment
+- Move business logic to backend to enable join and transaction
+  - Supabase doens't support join and transaction yet for now

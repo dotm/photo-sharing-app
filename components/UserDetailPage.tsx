@@ -182,7 +182,7 @@ export default function UserDetailPage({ viewedUserId }: { viewedUserId: string 
         }
         <VStack align="left" spacing={2} mt={4}>
           {photoList.length === 0 ? (
-            <Text>No photos found</Text>
+            <Text align="center">No photos found</Text>
           ) : (
             <SimpleGrid columns={gridColumns} spacing='10px'>
               {
