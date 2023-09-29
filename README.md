@@ -30,7 +30,6 @@ From supabase:
 
 ## TODO
 
-- Deploy (don't forget env var)
 - Check flow new user
 - Check flow new user viewing existing user
 - Improve styling

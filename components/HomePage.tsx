@@ -3,6 +3,7 @@ import { handleErrorInFrontend } from '@/utils/error'
 import { stlUserDetail } from '@/utils/type'
 import {
   Box,
+  Button,
   Card,
   CardBody,
   Heading,
@@ -91,6 +92,16 @@ export default function HomePage() {
   return (
     <Box p={4}>
       <Stack direction="column" align="center">
+        <Button
+          colorScheme='black'
+          variant='outline'
+          onClick={() => {
+            supabase.auth.signOut()
+            router.push('/')
+          }}
+        >
+          Sign Out
+        </Button>
         <Text fontWeight="bold">User List</Text>
         <VStack align="left" spacing={2} mt={4}>
           {searchedUserList.length === 0 ? (
