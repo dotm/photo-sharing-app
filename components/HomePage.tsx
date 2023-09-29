@@ -1,21 +1,19 @@
-import NextLink from 'next/link'
-
 import { Database } from '@/utils/database'
 import { handleErrorInFrontend } from '@/utils/error'
 import { stlUserDetail } from '@/utils/type'
-import { ArrowForwardIcon } from '@chakra-ui/icons'
 import {
   Box,
-  ChakraProvider,
+  Card,
+  CardBody,
+  Heading,
   Link,
-  List,
-  ListIcon,
-  ListItem,
+  SimpleGrid,
   Stack,
   Text,
   VStack
 } from '@chakra-ui/react'
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
+import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -73,7 +71,7 @@ export default function HomePage() {
       const getUserDetailResp = await supabase
       .from('stlUserDetail')
       .select("*")
-      .limit(100)
+      .limit(100) //TODO: pagination
       if (getUserDetailResp.error && getUserDetailResp.status !== 406) {
         throw getUserDetailResp.error
       }
@@ -89,37 +87,34 @@ export default function HomePage() {
     }
   }
 
+  const gridColumns = searchedUserList.length < 4 ? {base:1} : {base:1, sm:2, md:3, lg:4}
   return (
-    <ChakraProvider>
-      <Box p={4}>
-        <Stack direction="column" align="center">
-          {/* <Input
-            type="text"
-            placeholder="Search for a user"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          /> */}
-          <Text fontWeight="bold">User List</Text>
-          <VStack align="left" spacing={2} mt={4}>
-            {searchedUserList.length === 0 ? (
-              <Text>No users found</Text>
-            ) : (
-              <List spacing={3}>
-                {
-                  searchedUserList.map((user) => (
-                    <ListItem key={user.userId}>
-                      <Link as={NextLink} href={`/user/${user.userId}`}>
-                        <ListIcon as={ArrowForwardIcon} color='green.500' />
-                        {user.userName}
-                      </Link>
-                    </ListItem>
-                  ))
-                }
-              </List>
-            )}
-          </VStack>
-        </Stack>
-      </Box>
-    </ChakraProvider>
+    <Box p={4}>
+      <Stack direction="column" align="center">
+        <Text fontWeight="bold">User List</Text>
+        <VStack align="left" spacing={2} mt={4}>
+          {searchedUserList.length === 0 ? (
+            <Text>No users found</Text>
+          ) : (
+            <SimpleGrid columns={gridColumns} spacing='10px'>
+              {
+                searchedUserList.map((user) => (
+                  <Link key={user.userId} as={NextLink} href={`/user/${user.userId}`}>
+                    <Card maxW='sm'>
+                      <CardBody>
+                        {/* <Image src='' alt='' borderRadius='lg' /> */}
+                        <Stack spacing='3'>
+                          <Heading size='md'>{user.userName}</Heading>
+                        </Stack>
+                      </CardBody>
+                    </Card>
+                  </Link>
+                ))
+              }
+            </SimpleGrid>
+          )}
+        </VStack>
+      </Stack>
+    </Box>
   )
 }

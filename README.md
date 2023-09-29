@@ -30,11 +30,13 @@ From supabase:
 
 ## TODO
 
-- Add photo in database.
-- Implement user page.
-  - if user id is the same, then allow upload image
-- Add comment in database.
 - Implement photo page.
   - Allow comment
 - Deploy (don't forget env var)
+- Check flow new user
+- Check flow new user viewing existing user
 - Improve styling
+- Delete Photo
+  - also delete from storage
+- Delete Comment
+- Edit Comment

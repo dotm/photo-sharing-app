@@ -6,3 +6,5 @@ export function notNullOrUndefined<TValue>(value: TValue | null | undefined): va
 }
 
 export type stlUserDetail = Database['public']['Tables']['stlUserDetail']['Row']
+export type stlPhotoDetail = Database['public']['Tables']['stlPhotoDetail']['Row']
+export type stlPhotoCommentDetail = Database['public']['Tables']['stlPhotoCommentDetail']['Row']
