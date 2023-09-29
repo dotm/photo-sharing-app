@@ -1,4 +1,4 @@
-import HomePage from '@/components/HomePage';
+import EditUserData from '@/components/EditUserData';
 import { refreshIfNewAppVersionAvailable } from '@/utils/appversionutil';
 import { LocalStorageKey } from '@/utils/constants';
 import { Box } from '@chakra-ui/react';
@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import useLocalStorage from 'use-local-storage';
 
-export default function Home() {
+export default function SettingsPage () {
   const session = useSession()
   const supabase = useSupabaseClient()
   const router = useRouter()
@@ -26,8 +26,8 @@ export default function Home() {
           <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} theme="light" providers={[]} />
         </Box>
       ) : (
-        <HomePage />
+        <EditUserData />
       )}
     </div>
-  );
+  )
 }

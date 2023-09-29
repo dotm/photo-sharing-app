@@ -1,0 +1,26 @@
+/* Spinner */
+
+.custom-spinner {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.custom-spinner {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: auto;
+  border-radius: 50%;
+  border: 6px solid #222;
+  border-color: #222 transparent #222 transparent;
+  animation: custom-spinner 1.2s linear infinite;
+}
+@keyframes custom-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

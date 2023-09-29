@@ -20,3 +20,21 @@ From supabase:
 
 - change Authentication > URL Configuration
   - use Vercel for site url and redirect urls
+
+## Run in Local
+
+- npm install
+  - run this once, if you haven't
+- npm run dev
+- open http://localhost:3000
+
+## TODO
+
+- Add photo in database.
+- Implement user page.
+  - if user id is the same, then allow upload image
+- Add comment in database.
+- Implement photo page.
+  - Allow comment
+- Deploy (don't forget env var)
+- Improve styling
