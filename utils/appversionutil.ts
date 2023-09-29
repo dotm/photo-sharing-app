@@ -6,6 +6,9 @@ export async function refreshIfNewAppVersionAvailable(
   setAppVersion: (value: string)=>void,
   router: NextRouter,
 ) {
+  if(appVersion !== "kodok"){
+    return //disable for now
+  }
   const response = await fetch(
     `/api/appVersion`,
     {
