@@ -30,8 +30,6 @@ From supabase:
 
 ## TODO
 
-- Check flow new user
-- Check flow new user viewing existing user
 - Improve styling
 - Delete Photo
   - also delete from storage
